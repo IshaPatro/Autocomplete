@@ -13,6 +13,9 @@ export default function Tags() {
         id="tags-outlined"
         options={["foo", "bar"]}
         defaultValue={["foo", "bar"]}
+        onChange={(e, newval, reason) => {
+                setAutoCompleteValue(newval);
+              }}
         renderInput={(params) => (
           <TextField
             {...params}
