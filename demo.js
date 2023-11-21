@@ -19,6 +19,11 @@ export default function Tags() {
             variant="outlined"
             label="filterSelectedOptions"
             placeholder="Favorites"
+              onKeyDown={(e) => {
+              if (e.keyCode === 13 && e.target.value) {
+                setAutoCompleteValue(autoCompleteValue.concat(e.target.value));
+              }
+            }}
           />
         )}
       />
