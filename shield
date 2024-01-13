@@ -1,3 +1,9 @@
+const [isDialogOpen, setDialogOpen] = useState(false);
+
+  const openDialog = () => {
+    setDialogOpen(true);
+  };
+
 <button onClick={openDialog}>Open Dialog</button>
       {isDialogOpen && <Dialog onClose={() => setDialogOpen(false)} />}
 
