@@ -1,1 +1,66 @@
-scasdjkcn
+<button onClick={openDialog}>Open Dialog</button>
+      {isDialogOpen && <Dialog onClose={() => setDialogOpen(false)} />}
+
+
+
+
+
+
+// Button.js
+import React, { useState } from 'react';
+
+const Button = () => {
+  const [isDialogOpen, setDialogOpen] = useState(false);
+
+  const openDialog = () => {
+    setDialogOpen(true);
+  };
+
+  return (
+    <div>
+      <button onClick={openDialog}>Open Dialog</button>
+      {isDialogOpen && (
+        <div className="dialog-overlay">
+          <div className="dialog-box">
+            <p>This is a popup dialog box!</p>
+            <button onClick={() => setDialogOpen(false)}>Close</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Button;
+
+// Include inline styles
+const styles = `
+  .dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dialog-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .dialog-box button {
+    margin-top: 10px;
+  }
+`;
+
+const styleSheet = document.createElement('style');
+styleSheet.type = 'text/css';
+styleSheet.innerText = styles;
+document.head.appendChild(styleSheet);
+
